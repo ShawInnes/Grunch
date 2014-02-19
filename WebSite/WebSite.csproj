@@ -49,6 +49,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Autofac.WebApi2.3.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.0.0.1\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc">
+      <HintPath>..\packages\FluentValidation.MVC5.5.0.0.1\lib\Net45\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
@@ -192,12 +198,15 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="AutofacFluentValidationModule.cs" />
+    <Compile Include="AutofacValidatorFactory.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Migrations\201402181305406_Create.cs" />
     <Compile Include="Migrations\201402181305406_Create.Designer.cs">
       <DependentUpon>201402181305406_Create.cs</DependentUpon>
@@ -261,6 +270,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\PlaceOrder.cshtml" />
+    <Content Include="Views\Person\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201402181305406_Create.resx">
@@ -281,6 +291,10 @@
     <ProjectReference Include="..\Grunch.Data\Grunch.Data.csproj">
       <Project>{efe69269-7b99-4441-b90b-9579dbdfd721}</Project>
       <Name>Grunch.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grunch.Validation\Grunch.Validation.csproj">
+      <Project>{9c43cd76-f7fe-49ab-9f00-997f0bbcde34}</Project>
+      <Name>Grunch.Validation</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -6,15 +6,13 @@ using System.Text;
 
 namespace Grunch.Core
 {
-    public class Order
+    public class Person
     {
         [Key]
         public int Id { get; set; }
 
-        public string Person { get; set; }
-
-        public string OrderDescription { get; set; }
-
-        public double Amount { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EmailAddress { get; set; }
     }
 }

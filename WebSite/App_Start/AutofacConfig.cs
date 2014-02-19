@@ -10,6 +10,8 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Utility.Logging.NLog.Autofac;
 using Grunch.Data;
+using FluentValidation;
+using FluentValidation.Mvc;
 
 namespace WebSite
 {
@@ -28,10 +30,12 @@ namespace WebSite
 
             builder.RegisterModule<AutofacWebTypesModule>();
             builder.RegisterModule<NLogLoggerAutofacModule>();
+            builder.RegisterModule<AutofacFluentValidationModule>();
 
             builder.RegisterAssemblyTypes(assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
             
             builder.RegisterType<OrderDbContext>().As<IOrderDbContext>();
+
 
             IContainer container = builder.Build();
             //container.ActivateGlimpse();
@@ -44,6 +48,13 @@ namespace WebSite
 
             // SignalR dependency resolver
             //GlobalHost.DependencyResolver = new Autofac.Integration.SignalR.AutofacDependencyResolver(container);
+
+            // Set up the FluentValidation provider factory and add it as a Model validator
+            var fluentValidationModelValidatorProvider = new FluentValidationModelValidatorProvider(new AutofacValidatorFactory(container));
+            DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
+            fluentValidationModelValidatorProvider.AddImplicitRequiredValidator = false;
+            ModelValidatorProviders.Providers.Add(fluentValidationModelValidatorProvider);
+
         }
     }
 }

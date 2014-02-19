@@ -19,7 +19,6 @@ namespace WebSite
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
 
             AutofacConfig.Register();
-
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

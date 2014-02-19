@@ -11,17 +11,12 @@ namespace Grunch.Core
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "An Order Date is required")]
         public DateTime Date { get; set; }
 
-        [Required(ErrorMessage = "An Order Owner is required")]
-        [StringLength(50)]
         public string Owner { get; set; }
         
         //public ApplicationIdentity OwnerIdentity { get; set; }
 
-        [Required(ErrorMessage = "An Order Description is required")]
-        [StringLength(50)]
         public string Description { get; set; }
 
         public OrderStatus Status { get; set; }    
