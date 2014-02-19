@@ -32,7 +32,7 @@ namespace WebSite.Controllers
         [HttpPost]
         public ActionResult Create(GroupOrder groupOrder)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && groupOrder.Owner == HttpContext.User.Identity.Name)
             {
                 OrderContext.GroupOrders.Add(groupOrder); 
                 return RedirectToAction("Index");

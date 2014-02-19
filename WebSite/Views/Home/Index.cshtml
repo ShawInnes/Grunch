@@ -17,18 +17,24 @@
     <tbody>
         @foreach (var group in Model)
         {
-        <tr>
-            <th>@group.Date</th>
-            <th>@group.Description</th>
-            <td align="right">@Html.ActionLink("Place Order", "PlaceOrder", "Home", new { id = group.Id }, new { @class = "btn btn-default" })</td>
-        </tr>
+            <tr>
+                <th>@group.Date</th>
+                <th>@group.Description</th>
+                <td align="right">
+                @if (User.Identity.Name == group.Owner)
+                {
+                    @Html.ActionLink("Close", "Close", "Home", null, new { @class = "btn btn-warning" })
+                }
+                @Html.ActionLink("Place Order", "PlaceOrder", "Home", new { id = group.Id }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
             foreach (var order in group.Orders)
             { 
-            <tr>
-                <td>@order.Person</td>
-                <td>@order.OrderDescription</td>
-                <td align="right">@order.Amount.ToString("c")</td>
-            </tr>
+                <tr>
+                    <td>@order.Person</td>
+                    <td>@order.OrderDescription</td>
+                    <td align="right">@order.Amount.ToString("c")</td>
+                </tr>
             }
             <tr>
                 <td></td>
