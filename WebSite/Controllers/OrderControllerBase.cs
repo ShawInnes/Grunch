@@ -20,13 +20,18 @@ namespace WebSite.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+//            Logger.Trace("OnActionExecuting :: {0}", this.GetType().Name);
             base.OnActionExecuting(filterContext);
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
+            //Logger.Trace("OnActionExecuted :: {0}", this.GetType().Name);
             if (filterContext.Exception == null && OrderContext != null && OrderContext.HasChanges())
+            {
+                //Logger.Trace("OnActionExecuted :: OrderContext.SaveChanges :: {0}", this.GetType().Name);
                 OrderContext.SaveChanges();
+            }
 
             base.OnActionExecuted(filterContext);
         }

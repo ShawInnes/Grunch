@@ -20,19 +20,6 @@ namespace WebSite
                     .Keyed<IValidator>(item.InterfaceType)
                     .As<IValidator>();
             }
-
-            //builder.RegisterType<RegisterModelValidator>()
-            //        .Keyed<IValidator>(typeof(IValidator<RegisterModel>))
-            //        .As<IValidator>();
-            //builder.RegisterType<RegisterExternalLoginModelValidator>()
-            //        .Keyed<IValidator>(typeof(IValidator<RegisterExternalLoginModel>))
-            //        .As<IValidator>();
-            //builder.RegisterType<LoginModelValidator>()
-            //        .Keyed<IValidator>(typeof(IValidator<LoginModel>))
-            //        .As<IValidator>();
-            //builder.RegisterType<LocalPasswordModelValidator>()
-            //        .Keyed<IValidator>(typeof(IValidator<LocalPasswordModel>))
-            //        .As<IValidator>();
         }
     }
 }
