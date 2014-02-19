@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Grunch.Core.GroupOrder>
+           
+@{
+
+}
+
+@Html.ActionLink("Create", "Create", "Home", null, new { @class = "btn btn-default" })
+
+<table class="table table-condensed table-responsive">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model)
+        {
+        <tr>
+            <th>@group.Date</th>
+            <th>@group.Description</th>
+            <td align="right">@Html.ActionLink("Place Order", "PlaceOrder", "Home", new { id = group.Id }, new { @class = "btn btn-default" })</td>
+        </tr>
+            foreach (var order in group.Orders)
+            { 
+            <tr>
+                <td>@order.Person</td>
+                <td>@order.OrderDescription</td>
+                <td align="right">@order.Amount.ToString("c")</td>
+            </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td align="right">@group.Orders.Sum(p => p.Amount).ToString("c")</td>
+            </tr>
+        }
+    </tbody>
+</table>
