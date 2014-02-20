@@ -207,11 +207,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
-    <Compile Include="Migrations\201402181305406_Create.cs" />
-    <Compile Include="Migrations\201402181305406_Create.Designer.cs">
-      <DependentUpon>201402181305406_Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Controllers\OrderControllerBase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -272,11 +267,6 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\PlaceOrder.cshtml" />
     <Content Include="Views\Person\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201402181305406_Create.resx">
-      <DependentUpon>201402181305406_Create.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

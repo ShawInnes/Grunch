@@ -16,8 +16,6 @@ namespace WebSite
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
-
             AutofacConfig.Register();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

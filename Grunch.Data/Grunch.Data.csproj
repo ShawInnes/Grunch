@@ -51,6 +51,10 @@
     <Compile Include="Migrations\201402181305406_Create.Designer.cs">
       <DependentUpon>201402181305406_Create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402201246361_MenuDataObjects.cs" />
+    <Compile Include="Migrations\201402201246361_MenuDataObjects.Designer.cs">
+      <DependentUpon>201402201246361_MenuDataObjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201402181305406_Create.resx">
       <DependentUpon>201402181305406_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402201246361_MenuDataObjects.resx">
+      <DependentUpon>201402201246361_MenuDataObjects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

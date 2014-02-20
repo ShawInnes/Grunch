@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using Grunch.Core;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Grunch.Data
 {
@@ -13,9 +14,21 @@ namespace Grunch.Data
             : DbContext, 
             IOrderDbContext
     {
+        static OrderDbContext()
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
+        }
+
         public OrderDbContext()
             : base("DefaultConnection")
         {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public bool HasChanges()
@@ -34,5 +47,11 @@ namespace Grunch.Data
         }
 
         public DbSet<GroupOrder> GroupOrders { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<Suburb> Suburbs { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<MenuGrouping> MenuGroupings { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
     }
 }

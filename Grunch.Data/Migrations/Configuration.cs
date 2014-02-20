@@ -1,5 +1,6 @@
 namespace Grunch.Data
 {
+    using Grunch.Core;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -12,7 +13,7 @@ namespace Grunch.Data
             AutomaticMigrationsEnabled = true;
             ContextKey = "WebSite.Models.OrderDbContext";
         }
-
+        
         protected override void Seed(OrderDbContext context)
         {
             //  This method will be called after migrating to the latest version.
@@ -27,6 +28,12 @@ namespace Grunch.Data
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Countries.AddOrUpdate(
+                p => p.Code,
+                new Country { Code = "au", Name = "Australia" },
+                new Country { Code = "nz", Name = "New Zealand" },
+                new Country { Code = "us", Name = "United States of America" } );
         }
     }
 }
