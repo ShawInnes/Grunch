@@ -10,7 +10,7 @@ using WebSite.Models;
 namespace WebSite.Controllers
 {
     public class PersonController
-            : OrderControllerBase
+            : DbBaseController
     {
         public ActionResult Create()
         {

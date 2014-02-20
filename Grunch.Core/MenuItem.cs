@@ -11,8 +11,8 @@ namespace Grunch.Core
         [Key]
         public int Id { get; set; }
 
-        public int RestaurantId { get; set; }
-        public virtual Restaurant Restaurant { get; set; }
+        public int MenuGroupingId { get; set; }
+        public virtual MenuGrouping MenuGrouping { get; set; }
 
         public int SortOrder { get; set; }
 

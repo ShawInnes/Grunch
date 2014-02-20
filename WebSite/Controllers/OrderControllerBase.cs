@@ -8,7 +8,56 @@ using Grunch.Data;
 
 namespace WebSite.Controllers
 {
-    public class OrderControllerBase : Controller
+    public class LocationController 
+        : DbBaseController
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Country()
+        {
+            return View(OrderContext.Countries.ToList());
+        }
+
+        public ActionResult State(int id)
+        {
+            return View(OrderContext.States.Where(p => p.CountryId == id).ToList());
+        }
+
+        public ActionResult Suburb(int id)
+        {
+            return View(OrderContext.Suburbs.Where(p => p.StateId == id).ToList());
+        }
+    }
+
+    public class MenuController
+        : DbBaseController
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Restaurant(int id)
+        {
+            return View(OrderContext.Restaurants.Where(p => p.SuburbId == id).ToList());
+        }
+        
+        public ActionResult MenuGrouping(int id)
+        {
+            return View(OrderContext.MenuGroupings.Where(p => p.RestaurantId == id).ToList());
+        }
+        
+        public ActionResult MenuItem(int id)
+        {
+            return View(OrderContext.MenuItems.Where(p => p.MenuGroupingId == id).ToList());
+        }
+
+    }
+
+    public class DbBaseController : Controller
     {
         public IOrderDbContext OrderContext { get; set; }
         public ILoggerFactory LoggerFactory { get; set; }

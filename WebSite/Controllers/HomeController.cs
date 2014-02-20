@@ -11,7 +11,7 @@ namespace WebSite.Controllers
 {
     [Authorize]
     public class HomeController 
-        : OrderControllerBase
+        : DbBaseController
     {
         [AllowAnonymous]
         public ActionResult Index()
