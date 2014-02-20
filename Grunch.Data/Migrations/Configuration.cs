@@ -10,7 +10,7 @@ namespace Grunch.Data
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "WebSite.Models.OrderDbContext";
         }
         
@@ -27,13 +27,19 @@ namespace Grunch.Data
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            //
 
             context.Countries.AddOrUpdate(
                 p => p.Code,
                 new Country { Code = "au", Name = "Australia" },
                 new Country { Code = "nz", Name = "New Zealand" },
                 new Country { Code = "us", Name = "United States of America" } );
+
+            context.Restaurants.AddOrUpdate(
+                p => p.Name,
+                new Restaurant { Name = "Brew Bakers" }, 
+                new Restaurant { Name = "Sanga Sushi" }, 
+                new Restaurant { Name = "Sitar Indian" }, 
+                new Restaurant { Name = "Efes One Turkish" } );
         }
     }
 }

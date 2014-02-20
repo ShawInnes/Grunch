@@ -16,7 +16,8 @@ namespace Grunch.Data
     {
         static OrderDbContext()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<OrderDbContext>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
         }
 
         public OrderDbContext()
