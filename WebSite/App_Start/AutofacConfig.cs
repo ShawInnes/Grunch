@@ -33,8 +33,8 @@ namespace WebSite
             builder.RegisterModule<NLogLoggerAutofacModule>();
             builder.RegisterModule<AutofacFluentValidationModule>();
 
-#if !DEBUG
-            builder.RegisterType<ZeroFeatureService>().As<IFeatureService>();
+#if DEBUG
+            builder.RegisterType<FullFeatureService>().As<IFeatureService>();
 #else
             builder.RegisterType<ConfigurationManagerService>().As<IConfigurationManagerService>();
             builder.RegisterType<AppConfigFeatureService>().As<IFeatureService>();
