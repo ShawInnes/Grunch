@@ -4,7 +4,10 @@
 
 }
 
+@if (View.HasFeature(Grunch.Services.Feature.CreateGroupOrder))
+{ 
 @Html.ActionLink("Create", "Create", "Home", null, new { @class = "btn btn-default" })
+}
 
 <table class="table table-condensed table-responsive">
     <thead>

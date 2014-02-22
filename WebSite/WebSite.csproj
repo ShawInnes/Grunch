@@ -231,6 +231,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\OrderControllerBase.cs" />
+    <Compile Include="Extensions\ViewExtensions.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -238,6 +239,10 @@
     <Compile Include="Migrations\201402220627030_Initial.cs" />
     <Compile Include="Migrations\201402220627030_Initial.Designer.cs">
       <DependentUpon>201402220627030_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402220810173_Authentication.cs" />
+    <Compile Include="Migrations\201402220810173_Authentication.Designer.cs">
+      <DependentUpon>201402220810173_Authentication.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -329,6 +334,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201402220627030_Initial.resx">
       <DependentUpon>201402220627030_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402220810173_Authentication.resx">
+      <DependentUpon>201402220810173_Authentication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
