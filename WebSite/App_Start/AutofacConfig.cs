@@ -33,9 +33,14 @@ namespace WebSite
             builder.RegisterModule<NLogLoggerAutofacModule>();
             builder.RegisterModule<AutofacFluentValidationModule>();
 
-            builder.RegisterType<FullFeatureService>().As<IFeatureService>().SingleInstance();
+#if !DEBUG
+            builder.RegisterType<ZeroFeatureService>().As<IFeatureService>();
+#else
+            builder.RegisterType<ConfigurationManagerService>().As<IConfigurationManagerService>();
+            builder.RegisterType<AppConfigFeatureService>().As<IFeatureService>();
+#endif
 
-            builder.RegisterAssemblyTypes(assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
+            //builder.RegisterAssemblyTypes(assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
 
             builder.RegisterType<OrderDbContext>().As<IOrderDbContext>();
 
@@ -56,7 +61,6 @@ namespace WebSite
             DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
             fluentValidationModelValidatorProvider.AddImplicitRequiredValidator = false;
             ModelValidatorProviders.Providers.Add(fluentValidationModelValidatorProvider);
-
         }
     }
 }

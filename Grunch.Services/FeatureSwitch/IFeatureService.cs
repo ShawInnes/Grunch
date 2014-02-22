@@ -11,6 +11,7 @@ namespace Grunch.Services
     public interface IFeatureService
     {
         bool HasFeature(Feature feature);
-        T GetFeatureSwitch<T>(Feature feature) where T : struct;
+        void SetFeature(Feature feature, bool enabled);
+        Dictionary<Feature, bool> GetFeatures();
     }
 }

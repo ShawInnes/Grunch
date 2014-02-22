@@ -12,7 +12,7 @@ namespace WebSite.Controllers
     public class DbBaseController : Controller
     {
         public IOrderDbContext OrderContext { get; set; }
-        public IFeatureService FeatureService { get; set; } 
+        public IFeatureService Feature { get; set; } 
         public ILoggerFactory LoggerFactory { get; set; }
         public ILogger Logger { get { return LoggerFactory.GetCurrentInstanceLogger(); } }
 

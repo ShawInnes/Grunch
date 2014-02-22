@@ -1,0 +1,22 @@
+﻿@model Dictionary<Grunch.Services.Feature, bool>
+
+@{
+    ViewBag.Title = "Features";
+}
+
+<h2>Features</h2>
+
+<table class="table">
+    <tr>
+        <th>Feature</th>
+        <th>Enabled</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Key</td>
+        <td>@Html.ActionLink(item.Value.ToString(), "Features", "Home", new { feature = item.Key, enabled = !item.Value }, null)</td>
+    </tr>
+}
+
+</table>

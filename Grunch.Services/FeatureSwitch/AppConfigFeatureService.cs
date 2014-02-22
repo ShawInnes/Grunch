@@ -4,14 +4,24 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
+using System.Configuration;
 
 namespace Grunch.Services
 {
     public class AppConfigFeatureService : IFeatureService
     {
-        public IConfigurationManagerService ConfigurationManagerService { get; set; }
+        private IConfigurationManagerService ConfigurationManagerService { get; set; }
 
-        public T GetFeatureSwitch<T>(Feature feature) where T : struct
+        /// <summary>
+        /// Initializes a new instance of the AppConfigFeatureService class.
+        /// </summary>
+        public AppConfigFeatureService(IConfigurationManagerService service)
+        {
+            ConfigurationManagerService = service;
+        }
+
+        private T GetFeatureSwitch<T>(Feature feature) where T : struct
         {
             var value = GetSwitchSetting(feature);
 
@@ -46,6 +56,24 @@ namespace Grunch.Services
         public bool HasFeature(Feature feature)
         {
             return GetFeatureSwitch<bool>(feature);
+        }
+
+        public Dictionary<Feature, bool> GetFeatures()
+        {
+            return Enum.GetValues(typeof(Feature)).Cast<Feature>().ToDictionary(k => k, k => HasFeature(k));
+        }
+
+        public void SetFeature(Feature feature, bool enabled)
+        {
+            Configuration configuration = WebConfigurationManager.OpenWebConfiguration("~");
+            string key = feature.ToString();
+            
+            if (!configuration.AppSettings.Settings.AllKeys.Any(p => p == key))
+                configuration.AppSettings.Settings.Add(key, enabled.ToString());
+            else
+                configuration.AppSettings.Settings[key].Value = enabled.ToString();
+
+            configuration.Save();
         }
     }
 }

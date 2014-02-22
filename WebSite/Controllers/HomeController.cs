@@ -1,5 +1,6 @@
 ﻿using Grunch.Core;
 using Grunch.Data;
+using Grunch.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,10 +66,30 @@ namespace WebSite.Controllers
             }
         }
 
+        [AllowAnonymous]
         public ActionResult Claims()
         {
             ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
             return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Features()
+        {
+            return View(Feature.GetFeatures());
+        }
+
+        [AllowAnonymous]
+        [Route("{feature}/{enabled}")]
+        public ActionResult Features(Feature? feature, bool? enabled)
+        {
+            if (feature.HasValue && enabled.HasValue)
+            {
+                Feature.SetFeature(feature.Value, enabled.Value);
+                return RedirectToAction("Features");
+            }
+
+            return View(Feature.GetFeatures());
         }
     }
 }

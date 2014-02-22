@@ -22,6 +22,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Features", "Features", "Home")</li>
+                    @if (HasFeature(Grunch.Services.Feature.Login)) { 
+                        <li>@Html.ActionLink("Claims", "Claims", "Home")</li>                     
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

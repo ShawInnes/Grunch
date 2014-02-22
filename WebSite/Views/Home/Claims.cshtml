@@ -2,6 +2,8 @@
     ViewBag.Title = "Claims";
 }
 
+@if (HasFeature(Grunch.Services.Feature.Login))
+{
 <h2>Welcome: @ViewBag.ClaimsIdentity.Name</h2>
 <h3>Values from Identity</h3>
 <table>
@@ -62,3 +64,4 @@
         </tr>
     }
 </table>
+}

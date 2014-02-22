@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Grunch.Services
 {
-    public class FullFeatureService : IFeatureService
+    public class ZeroFeatureService : IFeatureService
     {
         public bool HasFeature(Feature feature)
         {
-            return true;
+            return false;
         }
 
         public Dictionary<Feature, bool> GetFeatures()
         {
-            return Enum.GetValues(typeof(Feature)).Cast<Feature>().ToDictionary(k => k, v => true);
+            return Enum.GetValues(typeof(Feature)).Cast<Feature>().ToDictionary(k => k, v => false);
         }
 
 

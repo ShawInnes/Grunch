@@ -1,12 +1,8 @@
 ﻿@model IEnumerable<Grunch.Core.GroupOrder>
-           
-@{
 
-}
-
-@if (View.HasFeature(Grunch.Services.Feature.CreateGroupOrder))
+@if (HasFeature(Grunch.Services.Feature.CreateGroupOrder))
 { 
-@Html.ActionLink("Create", "Create", "Home", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Create", "Create", "Home", null, new { @class = "btn btn-default" })
 }
 
 <table class="table table-condensed table-responsive">
@@ -24,15 +20,15 @@
                 <th>@group.Date</th>
                 <th>@group.Description</th>
                 <td align="right">
-                @if (User.Identity.Name == group.Owner)
-                {
-                    @Html.ActionLink("Close", "Close", "Home", null, new { @class = "btn btn-warning" })
-                }
-                @Html.ActionLink("Place Order", "PlaceOrder", "Home", new { id = group.Id }, new { @class = "btn btn-default" })
+                    @if (User.Identity.Name == group.Owner)
+                    {
+                        @Html.ActionLink("Close", "Close", "Home", null, new { @class = "btn btn-warning" })
+                    }
+                    @Html.ActionLink("Place Order", "PlaceOrder", "Home", new { id = group.Id }, new { @class = "btn btn-default" })
                 </td>
             </tr>
             foreach (var order in group.Orders)
-            { 
+            {
                 <tr>
                     <td>@order.Person</td>
                     <td>@order.OrderDescription</td>
