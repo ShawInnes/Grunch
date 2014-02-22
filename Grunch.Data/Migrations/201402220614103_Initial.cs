@@ -1,9 +1,9 @@
-namespace Grunch.Data
+namespace Grunch.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Create : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -73,18 +73,15 @@ namespace Grunch.Data
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        RestaurantId = c.Int(nullable: false),
+                        MenuGroupingId = c.Int(nullable: false),
                         SortOrder = c.Int(nullable: false),
                         Name = c.String(maxLength: 25),
                         Description = c.String(maxLength: 250),
                         Price = c.Double(nullable: false),
-                        MenuGrouping_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Restaurant", t => t.RestaurantId, cascadeDelete: true)
-                .ForeignKey("dbo.MenuGrouping", t => t.MenuGrouping_Id)
-                .Index(t => t.RestaurantId)
-                .Index(t => t.MenuGrouping_Id);
+                .ForeignKey("dbo.MenuGrouping", t => t.MenuGroupingId, cascadeDelete: true)
+                .Index(t => t.MenuGroupingId);
             
             CreateTable(
                 "dbo.Restaurant",
@@ -117,18 +114,16 @@ namespace Grunch.Data
         
         public override void Down()
         {
-            DropForeignKey("dbo.MenuItem", "MenuGrouping_Id", "dbo.MenuGrouping");
-            DropForeignKey("dbo.MenuItem", "RestaurantId", "dbo.Restaurant");
             DropForeignKey("dbo.Suburb", "StateId", "dbo.State");
             DropForeignKey("dbo.Restaurant", "SuburbId", "dbo.Suburb");
             DropForeignKey("dbo.MenuGrouping", "RestaurantId", "dbo.Restaurant");
+            DropForeignKey("dbo.MenuItem", "MenuGroupingId", "dbo.MenuGrouping");
             DropForeignKey("dbo.Order", "GroupOrder_Id", "dbo.GroupOrder");
             DropForeignKey("dbo.State", "CountryId", "dbo.Country");
-            DropIndex("dbo.MenuItem", new[] { "MenuGrouping_Id" });
-            DropIndex("dbo.MenuItem", new[] { "RestaurantId" });
             DropIndex("dbo.Suburb", new[] { "StateId" });
             DropIndex("dbo.Restaurant", new[] { "SuburbId" });
             DropIndex("dbo.MenuGrouping", new[] { "RestaurantId" });
+            DropIndex("dbo.MenuItem", new[] { "MenuGroupingId" });
             DropIndex("dbo.Order", new[] { "GroupOrder_Id" });
             DropIndex("dbo.State", new[] { "CountryId" });
             DropTable("dbo.Suburb");

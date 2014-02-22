@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOrderDbContext.cs" />
-    <Compile Include="Migrations\201402201257474_Create.cs" />
-    <Compile Include="Migrations\201402201257474_Create.Designer.cs">
-      <DependentUpon>201402201257474_Create.cs</DependentUpon>
+    <Compile Include="Migrations\201402220614103_Initial.cs" />
+    <Compile Include="Migrations\201402220614103_Initial.Designer.cs">
+      <DependentUpon>201402220614103_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderDbContext.cs" />
@@ -66,8 +66,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201402201257474_Create.resx">
-      <DependentUpon>201402201257474_Create.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201402220614103_Initial.resx">
+      <DependentUpon>201402220614103_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

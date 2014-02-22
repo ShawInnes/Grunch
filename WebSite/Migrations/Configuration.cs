@@ -1,18 +1,20 @@
-namespace Grunch.Data.Migrations
+namespace WebSite.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Grunch.Data.OrderDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<WebSite.Models.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "WebSite.Models.ApplicationDbContext";
+
         }
 
-        protected override void Seed(Grunch.Data.OrderDbContext context)
+        protected override void Seed(WebSite.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

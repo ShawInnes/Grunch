@@ -7,6 +7,7 @@ using System.Web;
 using System.Threading.Tasks;
 using Grunch.Core;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Grunch.Data.Migrations;
 
 namespace Grunch.Data
 {
@@ -16,8 +17,8 @@ namespace Grunch.Data
     {
         static OrderDbContext()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<OrderDbContext>());
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<OrderDbContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
         }
 
         public OrderDbContext()
