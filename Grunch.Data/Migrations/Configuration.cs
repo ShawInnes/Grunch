@@ -10,7 +10,7 @@ namespace Grunch.Data
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "WebSite.Models.OrderDbContext";
         }
         
