@@ -10,5 +10,6 @@ namespace Grunch.Services
         Menus,
         CreateGroupOrder,
         Login,
+        FeatureAdmin
     }
 }
