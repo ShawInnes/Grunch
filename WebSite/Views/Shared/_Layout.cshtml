@@ -6,7 +6,6 @@
     <title>Grunch - Group Lunch Bookings</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -34,7 +33,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="navbar navbar-fixed-bottom">
             <p>Copyright &copy; @DateTime.Now.Year | Version: @VersionInfo.Version</p>
         </footer>
     </div>
