@@ -35,7 +35,9 @@ namespace Grunch.Services
 
         private string GetSwitchSetting(Feature feature)
         {
-            return ConfigurationManagerService.AppSettings.Get(feature.ToString());
+            string key = "feature:" + feature.ToString();
+
+            return ConfigurationManagerService.AppSettings.Get(key);
         }
 
         private static bool TryParse<T>(string s, out T value)
@@ -66,7 +68,7 @@ namespace Grunch.Services
         public void SetFeature(Feature feature, bool enabled)
         {
             Configuration configuration = WebConfigurationManager.OpenWebConfiguration("~");
-            string key = feature.ToString();
+            string key = "feature:" + feature.ToString();
             
             if (!configuration.AppSettings.Settings.AllKeys.Any(p => p == key))
                 configuration.AppSettings.Settings.Add(key, enabled.ToString());

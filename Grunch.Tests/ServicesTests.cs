@@ -73,9 +73,9 @@ namespace Grunch.Tests
         private static IFeatureService GetAppConfigFeatureService()
         {
             var mock = Substitute.For<IConfigurationManagerService>();
-
+            
             NameValueCollection collection = new NameValueCollection();
-            collection.Add(Feature.Login.ToString(), "True");
+            collection.Add("feature:" + Feature.Login.ToString(), "True");
             mock.AppSettings.Returns(collection);
 
             IFeatureService service = new AppConfigFeatureService(mock);

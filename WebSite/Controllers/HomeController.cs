@@ -86,7 +86,7 @@ namespace WebSite.Controllers
             if (feature.HasValue && enabled.HasValue)
             {
                 Feature.SetFeature(feature.Value, enabled.Value);
-                return RedirectToAction("Features");
+                return RedirectToAction("Features", "Home", new { });
             }
 
             return View(Feature.GetFeatures());
