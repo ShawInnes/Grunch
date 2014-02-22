@@ -12,6 +12,7 @@ using Utility.Logging.NLog.Autofac;
 using Grunch.Data;
 using FluentValidation;
 using FluentValidation.Mvc;
+using Grunch.Services;
 
 namespace WebSite
 {
@@ -32,10 +33,11 @@ namespace WebSite
             builder.RegisterModule<NLogLoggerAutofacModule>();
             builder.RegisterModule<AutofacFluentValidationModule>();
 
-            builder.RegisterAssemblyTypes(assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
-            
-            builder.RegisterType<OrderDbContext>().As<IOrderDbContext>();
+            builder.RegisterType<FullFeatureService>().As<IFeatureService>().SingleInstance();
 
+            builder.RegisterAssemblyTypes(assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
+
+            builder.RegisterType<OrderDbContext>().As<IOrderDbContext>();
 
             IContainer container = builder.Build();
             //container.ActivateGlimpse();

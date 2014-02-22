@@ -15,15 +15,10 @@ namespace Grunch.Data
             : DbContext, 
             IOrderDbContext
     {
-        static OrderDbContext()
-        {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<OrderDbContext>());
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
-        }
-
         public OrderDbContext()
             : base("DefaultConnection")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderDbContext, Configuration>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

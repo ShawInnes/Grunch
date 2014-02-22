@@ -3,6 +3,7 @@ using Grunch.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using WebSite.Models;
@@ -62,6 +63,12 @@ namespace WebSite.Controllers
             {
                 return View(order);
             }
+        }
+
+        public ActionResult Claims()
+        {
+            ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
+            return View();
         }
     }
 }

@@ -227,15 +227,22 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\OrderControllerBase.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402220627030_Initial.cs" />
+    <Compile Include="Migrations\201402220627030_Initial.Designer.cs">
+      <DependentUpon>201402220627030_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -290,6 +297,7 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\PlaceOrder.cshtml" />
     <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Home\Claims.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -306,6 +314,10 @@
       <Project>{efe69269-7b99-4441-b90b-9579dbdfd721}</Project>
       <Name>Grunch.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grunch.Services\Grunch.Services.csproj">
+      <Project>{785cea51-7b2d-4a91-8d50-3510f116b2ee}</Project>
+      <Name>Grunch.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Grunch.Validation\Grunch.Validation.csproj">
       <Project>{9c43cd76-f7fe-49ab-9f00-997f0bbcde34}</Project>
       <Name>Grunch.Validation</Name>
@@ -313,6 +325,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201402220627030_Initial.resx">
+      <DependentUpon>201402220627030_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

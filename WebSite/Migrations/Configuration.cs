@@ -9,9 +9,7 @@ namespace WebSite.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "WebSite.Models.ApplicationDbContext";
-
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(WebSite.Models.ApplicationDbContext context)

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grunch.Tests", "Grunch.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grunch.Validation", "Grunch.Validation\Grunch.Validation.csproj", "{9C43CD76-F7FE-49AB-9F00-997F0BBCDE34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grunch.Services", "Grunch.Services\Grunch.Services.csproj", "{785CEA51-7B2D-4A91-8D50-3510F116B2EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9C43CD76-F7FE-49AB-9F00-997F0BBCDE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C43CD76-F7FE-49AB-9F00-997F0BBCDE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C43CD76-F7FE-49AB-9F00-997F0BBCDE34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785CEA51-7B2D-4A91-8D50-3510F116B2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785CEA51-7B2D-4A91-8D50-3510F116B2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785CEA51-7B2D-4A91-8D50-3510F116B2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785CEA51-7B2D-4A91-8D50-3510F116B2EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
