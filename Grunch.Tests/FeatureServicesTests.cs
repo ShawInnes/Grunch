@@ -12,7 +12,7 @@ using System.Collections.Specialized;
 
 namespace Grunch.Tests
 {
-    public class ServicesTests
+    public class FeatureServicesTests
     {
         [Theory, PropertyData("FullFeatureList")]
         public void FullFeatureHasFeature(Feature feature, bool expected)

@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeWord\ICodeWordService.cs" />
+    <Compile Include="CodeWord\CodeWordService.cs" />
+    <Compile Include="CodeWord\ITestableCodeWordService.cs" />
+    <Compile Include="CodeWord\TestableCodeWordService.cs" />
     <Compile Include="ConfigurationManager\IConfigurationManagerService.cs" />
     <Compile Include="ConfigurationManager\ConfigurationManagerService.cs" />
     <Compile Include="FeatureSwitch\AppConfigFeatureService.cs" />
@@ -50,6 +54,7 @@
     <Compile Include="FeatureSwitch\ZeroFeatureService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

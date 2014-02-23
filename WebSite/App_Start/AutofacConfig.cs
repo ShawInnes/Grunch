@@ -40,6 +40,8 @@ namespace WebSite
             builder.RegisterType<AppConfigFeatureService>().As<IFeatureService>();
 #endif
 
+            builder.RegisterType<CodeWordService>().As<ICodeWordService>();
+
             //builder.RegisterAssemblyTypes(assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
 
             builder.RegisterType<OrderDbContext>().As<IOrderDbContext>();

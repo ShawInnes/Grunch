@@ -58,7 +58,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServicesTests.cs" />
+    <Compile Include="CodeWordServiceTests.cs" />
+    <Compile Include="FeatureServicesTests.cs" />
+    <Compile Include="NSubstituteBuilder.cs" />
+    <Compile Include="NSubstituteMethodQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

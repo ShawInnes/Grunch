@@ -1,8 +1,12 @@
 ﻿@model IEnumerable<Grunch.Core.GroupOrder>
 
+<div class="jumbotron">
+    <h3>@ViewBag.CodeWord</h3>
+</div>
+
 @if (HasFeature(Grunch.Services.Feature.CreateGroupOrder))
-{ 
-    @Html.ActionLink("Create", "Create", "Home", null, new { @class = "btn btn-default" })
+{
+    @Html.ActionLink("Create New Group Order", "Create", "Home", null, new { @class = "btn btn-success" })
 }
 
 <table class="table table-condensed table-responsive">
