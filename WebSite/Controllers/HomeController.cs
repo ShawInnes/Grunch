@@ -26,7 +26,6 @@ namespace WebSite.Controllers
         }
 
         [AllowAnonymous]
-        [Route("home/index")]
         public ActionResult Index()
         {
             List<GroupOrder> list = OrderContext.GroupOrders.Where(p => p.Status == OrderStatus.Open).ToList();
@@ -35,7 +34,6 @@ namespace WebSite.Controllers
             return View(list);
         }
 
-        [Route("home/create")]
         public ActionResult Create()
         {
             GroupOrder groupOrder = new GroupOrder();
@@ -45,7 +43,6 @@ namespace WebSite.Controllers
         }
 
         [HttpPost]
-        [Route("home/create")]
         public ActionResult Create(GroupOrder groupOrder)
         {
             if (ModelState.IsValid && groupOrder.Owner == HttpContext.User.Identity.Name)
@@ -59,14 +56,12 @@ namespace WebSite.Controllers
             } 
         }
 
-        [Route("home/placeorder/{id}")]
         public ActionResult PlaceOrder(int id)
         {
             return View();
         }
 
         [HttpPost]
-        [Route("home/placeorder/{id}")]
         public ActionResult PlaceOrder(int id, Order order)
         {
             if (ModelState.IsValid)
@@ -83,7 +78,6 @@ namespace WebSite.Controllers
         }
 
         [AllowAnonymous]
-        [Route("home/claims")]
         public ActionResult Claims()
         {
             ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
